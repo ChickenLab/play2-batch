@@ -13,7 +13,7 @@ import java.util.Date;
 /**
  * Created by dysim on 14. 7. 15.
  */
-abstract class BatchActor extends UntypedActor {
+public abstract class BatchActor extends UntypedActor {
 	public class BatchResult {
 		private String result;
 		private JobHistoryModel.State state;
