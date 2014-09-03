@@ -10,7 +10,7 @@ import play.Logger;
 public class SampleBatchActor extends BatchActor {
 	@Override
 	public BatchResult process() throws Exception {
-		Logger.debug("SampleBatchActor");
+		Logger.debug("SampleBatchActor Process");
 		return createResult(JobHistoryModel.State.FINISH, "SampleBatchActor Result");
 	}
 }

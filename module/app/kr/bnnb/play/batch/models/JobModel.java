@@ -59,4 +59,42 @@ public class JobModel extends Model {
 				.eq("job_id", jobId)
 				.findUnique();
 	}
+
+	public static void saveNewJob(JobModel job) {
+		job.regTime = new Date();
+		job.modTime = new Date();
+		job.state = State.NOT_USE.name();
+		job.isRunning = IsRunning.N.name();
+		job.save();
+	}
+
+	public static JobModel markAsUse(int jobId) {
+		JobModel job = JobModel.find.byId(jobId);
+		if (job == null) {
+			return null;
+		}
+
+		job.state = State.USE.name();
+		job.update();
+		return job;
+	}
+
+	public static JobModel markAsNotUse(int jobId) {
+		JobModel job = JobModel.find.byId(jobId);
+		if (job == null) {
+			return null;
+		}
+
+		job.state = State.NOT_USE.name();
+		job.update();
+		return job;
+	}
+
+	public boolean isUsing() {
+		if (State.valueOf(state) == State.USE) {
+			return true;
+		}
+
+		return false;
+	}
 }

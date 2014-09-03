@@ -1,0 +1,5 @@
+# Messages
+
+job.list.title={0,choice,0#No job|1#One job|1<{0,number,integer} jobs} found
+
+
