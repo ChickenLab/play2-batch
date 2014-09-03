@@ -30,7 +30,7 @@
 		<table class="computers zebra-striped">
 			<thead>
 				<tr>
-					<th class="header">Job Id</th>
+					<th>Job Id</th>
 					<th>Name</th>
 					<th>Code</th>
 					<th>Time Expr</th>
@@ -44,7 +44,7 @@
 
 			@for(job <- jobList) {
 				<tr>
-					<td>@job.jobId</td>
+					<td><a href="@routes.Application.edit(job.jobId)">@job.jobId</a></td>
 					<td>@job.name</td>
 					<td>@job.code</td>
 					<td>@job.timeExpression</td>

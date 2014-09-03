@@ -28,12 +28,29 @@ public class Application extends Controller {
 
 	public static Result save() {
 		Form<JobModel> jobForm = form(JobModel.class).bindFromRequest();
-		if(jobForm.hasErrors()) {
+		if (jobForm.hasErrors()) {
 			return badRequest(createForm.render(jobForm));
 		}
 
 		JobModel.saveNewJob(jobForm.get());
 		flash("success", "Job " + jobForm.get().name + " has been created");
+		return redirect(routes.Application.list());
+	}
+
+	public static Result edit(int id) {
+		Form<JobModel> jobForm = form(JobModel.class).fill(JobModel.find.byId(id));
+		return ok(editForm.render(id, jobForm));
+	}
+
+	public static Result update(int id) {
+		Form<JobModel> jobForm = form(JobModel.class).bindFromRequest();
+		if (jobForm.hasErrors()) {
+			return badRequest(editForm.render(id, jobForm));
+		}
+
+		JobModel.updateJob(id, jobForm.get());
+
+		flash("success", "Job " + jobForm.get().name + " has been updated");
 		return redirect(routes.Application.list());
 	}
 

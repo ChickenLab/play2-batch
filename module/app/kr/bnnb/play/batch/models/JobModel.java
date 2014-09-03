@@ -68,6 +68,18 @@ public class JobModel extends Model {
 		job.save();
 	}
 
+	public static void updateJob(int jobId, JobModel job) {
+		JobModel jobModel = JobModel.find.byId(jobId);
+		if (jobModel == null) {
+			return;
+		}
+
+		jobModel.name = job.name;
+		jobModel.code = job.code;
+		jobModel.timeExpression = job.timeExpression;
+		jobModel.update();
+	}
+
 	public static JobModel markAsUse(int jobId) {
 		JobModel job = JobModel.find.byId(jobId);
 		if (job == null) {
