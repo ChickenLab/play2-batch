@@ -63,6 +63,12 @@ public class JobHistoryModel extends Model {
 		return jobList;
 	}
 
+	public static List<JobHistoryModel> findByJobId(int jobId) {
+		return find.where().eq("job_id", jobId)
+				.orderBy("start_time DESC")
+				.findList();
+	}
+
 	private static String getYesterdayStart() {
 		DateTime dt = new DateTime();
 		DateTime yesterday = dt.minusDays(1);

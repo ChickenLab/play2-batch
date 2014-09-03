@@ -1,5 +1,6 @@
 package controllers;
 
+import kr.bnnb.play.batch.models.JobHistoryModel;
 import kr.bnnb.play.batch.models.JobModel;
 import play.data.*;
 import static play.data.Form.*;
@@ -19,6 +20,11 @@ public class Application extends Controller {
 	public static Result list() {
 		List<JobModel> jobModelList = JobModel.find.findList();
 		return ok(list.render(jobModelList));
+	}
+
+	public static Result historyList(int id) {
+		List<JobHistoryModel> historyModelList = JobHistoryModel.findByJobId(id);
+		return ok(historyList.render(historyModelList));
 	}
 
 	public static Result create() {

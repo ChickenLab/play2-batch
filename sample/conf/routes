@@ -3,17 +3,18 @@
 # ~~~~
 
 # Home page
-GET         /                        controllers.Application.index()
+GET         /                         controllers.Application.index()
 
 # Map static resources from the /public folder to the /assets URL path
-GET         /assets/*file            controllers.Assets.at(path="/public", file)
+GET         /assets/*file             controllers.Assets.at(path="/public", file)
 
-GET         /                        controllers.Application.index()
-GET         /jobs                    controllers.Application.list()
-GET         /jobs/new                controllers.Application.create()
-POST        /jobs                    controllers.Application.save()
-POST        /jobs/:id/use            controllers.Application.markAsUse(id:Int)
-POST        /jobs/:id/not_use        controllers.Application.markAsNotUse(id:Int)
-GET         /jobs/:id                controllers.Application.edit(id:Int)
-POST        /jobs/:id/update         controllers.Application.update(id:Int)
+GET         /                         controllers.Application.index()
+GET         /jobs                     controllers.Application.list()
+GET         /jobs/new                 controllers.Application.create()
+POST        /jobs                     controllers.Application.save()
+POST        /jobs/:id/use             controllers.Application.markAsUse(id:Int)
+POST        /jobs/:id/not_use         controllers.Application.markAsNotUse(id:Int)
+GET         /jobs/:id                 controllers.Application.edit(id:Int)
+POST        /jobs/:id/update          controllers.Application.update(id:Int)
+GET         /jobs/historys/:id        controllers.Application.historyList(id:Int)
 

@@ -31,6 +31,7 @@
 			<thead>
 				<tr>
 					<th>Job Id</th>
+					<th>History</th>
 					<th>Name</th>
 					<th>Code</th>
 					<th>Time Expr</th>
@@ -44,8 +45,9 @@
 
 			@for(job <- jobList) {
 				<tr>
-					<td><a href="@routes.Application.edit(job.jobId)">@job.jobId</a></td>
-					<td>@job.name</td>
+					<td>@job.jobId</td>
+					<td><a href="@routes.Application.historyList(job.jobId)">History</a></td>
+					<td><a href="@routes.Application.edit(job.jobId)">@job.name</a></td>
 					<td>@job.code</td>
 					<td>@job.timeExpression</td>
 					<td>@job.regTime.format("yyyy-MM-dd HH:mm:ss")</td>

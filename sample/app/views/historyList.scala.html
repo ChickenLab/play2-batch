@@ -1,0 +1,30 @@
+@(historyList: List[kr.bnnb.play.batch.models.JobHistoryModel])
+
+@main {
+	<a class="btn success" href="@routes.Application.list()">Back to job list</a>
+	<hr/>
+	<table class="computers zebra-striped">
+		<thead>
+			<tr>
+				<th>Job History Id</th>
+				<th>Start Time</th>
+				<th>Finish Time</th>
+				<th>State</th>
+				<th>result</th>
+				<th>run_ip</th>
+			</tr>
+		</thead>
+		<tbody>
+		@for(history <- historyList) {
+			<tr>
+				<td>@history.jobHistoryId</td>
+				<td>@history.startTime.format("yyyy-MM-dd HH:mm:ss")</td>
+				<td>@history.finishTime.format("yyyy-MM-dd HH:mm:ss")</td>
+				<td>@history.state</td>
+				<td>@history.result</td>
+				<td>@history.runIp</td>
+			</tr>
+		}
+		</tbody>
+	</table>
+}
