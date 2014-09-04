@@ -65,6 +65,7 @@ public class JobModel extends Model {
 		job.modTime = new Date();
 		job.state = State.NOT_USE.name();
 		job.isRunning = IsRunning.N.name();
+		job.lastTickTime = "";
 		job.save();
 	}
 
